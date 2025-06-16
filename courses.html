@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenyan High School Tuition - Excellence Learning Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3f51b5;
+            --primary-dark: #303f9f;
+            --secondary: #ff5722;
+            --accent: #4caf50;
+            --text: #2d3748;
+            --text-light: #718096;
+            --light: #f7fafc;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 28px;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .school-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .school-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .school-header .container {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .school-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .school-header p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Features Banner */
+        .features-banner {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .feature-text {
+            font-weight: 500;
+        }
+
+        /* Carousel */
+        .carousel {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+        }
+
+        .carousel-caption h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.2);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .carousel-control:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .carousel-control.prev {
+            left: 20px;
+        }
+
+        .carousel-control.next {
+            right: 20px;
+        }
+
+        /* Course Grid */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .course-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 25px;
+        }
+
+        .course-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .course-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .subject-badge {
+            background-color: var(--light);
+            color: var(--text);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .subject-badge:nth-child(1) {
+            background-color: rgba(63, 81, 181, 0.1);
+            color: var(--primary);
+        }
+
+        .subject-badge:nth-child(2) {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--accent);
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            margin: 60px 0;
+            border-radius: var(--radius);
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text);
+            color: var(--light);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            transform: translateX(5px);
+            color: var(--secondary);
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .school-header h1 {
+                font-size: 36px;
+            }
+            
+            .course-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .school-header {
+                padding: 80px 0;
+            }
+            
+            .school-header h1 {
+                font-size: 32px;
+            }
+            
+            .school-header p {
+                font-size: 18px;
+            }
+            
+            .carousel-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .school-header {
+                padding: 60px 0;
+            }
+            
+            .school-header h1 {
+                font-size: 28px;
+            }
+            
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .carousel-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    Excellence Tuition
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html" class="active">Courses</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="school-header">
+        <div class="container">
+            <h1>KCSE & KCPE Tuition Program-Yg-Tuition Program </h1>
+            <p>Personalized learning for Kenyan high school students to excel in national exams</p>
+        </div>
+    </section>
+
+    <section class="features-banner">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item" style="animation: slideInLeft 0.6s ease;">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="feature-text">Experienced Tutors</div>
+                </div>
+                <div class="feature-item" style="animation: slideInLeft 0.8s ease;">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="feature-text">Comprehensive Notes</div>
+                </div>
+                <div class="feature-item" style="animation: slideInLeft 1s ease;">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="feature-text">Exam Practice</div>
+                </div>
+                <div class="feature-item" style="animation: slideInLeft 1.2s ease;">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="feature-text">Performance Tracking</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Students learning" class="carousel-image">
+                <div class="carousel-caption">
+                    <h3>Interactive Learning Sessions</h3>
+                    <p>Small group tuition with personalized attention</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Study materials" class="carousel-image">
+                <div class="carousel-caption">
+                    <h3>Comprehensive Study Materials</h3>
+                    <p>KCSE-focused notes and revision kits</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Exam preparation" class="carousel-image">
+                <div class="carousel-caption">
+                    <h3>Exam Preparation</h3>
+                    <p>Regular tests and mock exams</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
+    </section>
+
+    <main class="container">
+        <h2 style="text-align: center; margin-bottom: 20px; color: var(--primary);">Our Comprehensive Course Offerings</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: var(--text-light);">
+            Covering all subjects in the Kenyan 8-4-4 curriculum with specialized focus on KCSE examination preparation
+        </p>
+
+        <section class="course-grid">
+            <!-- Form 1-4 Core Subjects -->
+            <div class="course-card" style="animation: fadeInUp 0.4s ease;">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mathematics" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Mathematics</h3>
+                    <p class="course-description">Master algebra, geometry, trigonometry, and calculus with our structured program designed for Forms 1-4 students.</p>
+                    <div class="course-meta">
+                        <span class="subject-badge">Form 1-4</span>
+                        <span class="subject-badge">Core Subject</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" style="animation: fadeInUp 0.6s ease;">
+                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="English" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">English</h3>
+                    <p class="course-description">Develop grammar, literature analysis, composition, and oral skills for KCSE excellence.</p>
+                    <div class="course-meta">
+                        <span class="subject-badge">Form 1-4</span>
+                        <span class="subject-badge">Core Subject</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" style="animation: fadeInUp 0.8s ease;">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kiswahili" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Kiswahili</h3>
+                    <p class="course-description">Language mastery, fasihi, and insha writing techniques for top KCSE performance.</p>
+                    <div class="course-meta">
+                        <span class="subject-badge">Form 1-4</span>
+                        <span class="subject-badge">Core Subject</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sciences -->
+            <div class="course-card" style="animation: fadeInUp 0.4s ease;">
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Physics" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Physics</h3>
+                    <p class="course-description">Practical and theoretical understanding of mechanics, waves, electricity, and modern physics.</p>
+                    <div class="course-meta">
+                        <span class="subject-badge">Form 1-4</span>
+                        <span class="subject-badge">Science</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" style="animation: fadeInUp 0.6s ease;">
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chemistry" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Chemistry</h3>
+                    <p class="course-description">Comprehensive coverage of atomic structure, chemical reactions, and organic chemistry.</p>
+                    <div class="course-meta">
+                        <span class="subject-badge">Form 1-4</span>
+                        <span class="subject-badge">Science</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" style="animation: fadeInUp 0.8s ease;">
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Biology" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Biology</h3>
+                    <p class="course-description">In-depth study of cell biology, genetics, ecology, and human physiology for KCSE.</p>
+                    <div class="course-meta">
+                        <span class="subject-badge">Form 1-4</span>
+                        <span class="subject-badge">Science</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Humanities -->
+            <div class="course-card" style="animation: fadeInUp 0.4s ease;">
+                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="History" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">History</h3>
+                    <p class="course-description">World history, African history, and Kenyan history with focus on KCSE exam techniques.</p>
+                    <div class="course-meta">
+                        <span class="subject-badge">Form 1-4</span>
+                        <span class="subject-badge">Humanities</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" style="animation: fadeInUp 0.6s ease;">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Geography" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Geography</h3>
+                    <p class="course-description">Physical geography, human geography, and map work with practical KCSE revision.</p>
+                    <div class="course-meta">
+                        <span class="subject-badge">Form 1-4</span>
+                        <span class="subject-badge">Humanities</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Excel in Your KCSE?</h2>
+                <p class="cta-text">Join our tuition program today and get personalized attention from experienced teachers who understand the Kenyan curriculum.</p>
+                <a href="contact.html" class="cta-button">Enroll Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Excellence Tuition</h3>
+                    <p>Specialized KCSE and KCPE tuition center helping Kenyan students achieve academic excellence since 2010.</p>
+                    <div style="margin-top: 20px;">
+                        <i class="fas fa-phone"></i> +254 700 123 456<br>
+                        <i class="fas fa-envelope"></i> info@excellencetuition.co.ke
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Popular Courses</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Mathematics</a></li>
+                        <li><a href="#">Physics</a></li>
+                        <li><a href="#">Chemistry</a></li>
+                        <li><a href="#">Biology</a></li>
+                        <li><a href="#">English</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Opening Hours</h3>
+                    <p><i class="fas fa-clock"></i> Weekdays: 8:00 AM - 5:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Saturday: 9:00 AM - 2:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+                    <div style="margin-top: 20px;">
+                        <a href="#" style="color: var(--white); margin-right: 15px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: var(--white); margin-right: 15px;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--white);"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Excellence Tuition Center. All rights reserved. | Nairobi, Kenya</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        const carousel = document.querySelector('.carousel-inner');
+        const items = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentIndex = 0;
+        const itemWidth = 100; // Percentage
+        let interval;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        }
+
+        // Auto slide every 5 seconds
+        function startCarousel() {
+            interval = setInterval(nextSlide, 5000);
+        }
+
+        function resetInterval() {
+            clearInterval(interval);
+            startCarousel();
+        }
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+
+        // Start carousel on page load
+        startCarousel();
+
+        // Pause on hover
+        carousel.parentElement.addEventListener('mouseenter', () => {
+            clearInterval(interval);
+        });
+
+        carousel.parentElement.addEventListener('mouseleave', () => {
+            startCarousel();
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.course-card, .feature-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize animations
+        window.addEventListener('load', () => {
+            animateOnScroll();
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>

@@ -4,24 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - YG Learning Platform</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4a6bff;
-            --primary-dark: #3a56cc;
-            --secondary-color: #00d2ff;
-            --accent-color: #ff6b6b;
-            --text-color: #2d3748;
+            --primary: #3f51b5;
+            --primary-dark: #303f9f;
+            --secondary: #ff5722;
+            --accent: #4caf50;
+            --text: #2d3748;
             --text-light: #718096;
-            --background-color: #f8fafc;
-            --card-background: #ffffff;
-            --footer-bg: #1a202c;
-            --transition: all 0.3s ease;
+            --light: #f7fafc;
+            --white: #ffffff;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
             --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
-            --border-radius: 12px;
+            --radius: 12px;
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -31,10 +30,10 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
             line-height: 1.6;
+            background-color: var(--light);
         }
 
         .container {
@@ -45,7 +44,7 @@
 
         /* Header Styles */
         header {
-            background-color: var(--card-background);
+            background-color: var(--white);
             box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
@@ -64,13 +63,14 @@
             align-items: center;
             font-size: 24px;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--primary);
             text-decoration: none;
         }
 
         .logo i {
             margin-right: 10px;
             font-size: 28px;
+            color: var(--secondary);
         }
 
         .nav-links {
@@ -84,87 +84,28 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--text);
             font-weight: 500;
-            position: relative;
             transition: var(--transition);
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary-color);
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--primary-color);
-        }
-
-        .auth-buttons .btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .login-btn {
-            background-color: transparent;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            margin-right: 10px;
-        }
-
-        .signup-btn {
-            background-color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-            color: white;
-        }
-
-        .login-btn:hover {
-            background-color: rgba(74, 107, 255, 0.1);
-        }
-
-        .signup-btn:hover {
-            background-color: var(--primary-dark);
-        }
-
-        /* Hero Section */
+        /* Contact Section Styles */
         .contact-hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 80px 0;
             text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            opacity: 0.1;
-            z-index: 1;
-        }
-
-        .contact-hero .container {
-            position: relative;
-            z-index: 2;
+            margin-bottom: 60px;
         }
 
         .contact-hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            font-weight: 700;
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
         }
 
         .contact-hero p {
@@ -174,597 +115,338 @@
             opacity: 0.9;
         }
 
-        /* Contact Container */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            padding: 80px 0;
+            margin-bottom: 60px;
         }
 
-        /* Contact Info */
         .contact-info {
-            padding: 40px;
-            background-color: var(--card-background);
-            border-radius: var(--border-radius);
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
             box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
         }
 
-        .contact-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        .contact-info h3 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .contact-info h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .contact-info h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-
-        .contact-details {
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
+        .info-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
-        .contact-icon {
+        .info-item i {
+            color: var(--primary);
             font-size: 20px;
-            color: var(--primary-color);
             margin-right: 15px;
-            width: 50px;
-            height: 50px;
-            background-color: rgba(74, 107, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            margin-top: 5px;
         }
 
-        .contact-text h3 {
+        .info-item div {
+            flex: 1;
+        }
+
+        .info-item h4 {
             font-size: 18px;
             margin-bottom: 5px;
+            color: var(--text);
         }
 
-        .contact-text p {
+        .info-item p {
             color: var(--text-light);
-            font-size: 15px;
+            line-height: 1.5;
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(74, 107, 255, 0.1);
-            border-radius: 50%;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        /* Contact Form */
         .contact-form {
-            padding: 40px;
-            background-color: var(--card-background);
-            border-radius: var(--border-radius);
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
             box-shadow: var(--shadow-md);
         }
 
-        .contact-form h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .contact-form h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
+        .contact-form h3 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
+            color: var(--text);
             font-weight: 500;
-            color: var(--text-color);
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 14px;
+            padding: 12px 15px;
             border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-family: 'Poppins', sans-serif;
+            border-radius: var(--radius);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
             transition: var(--transition);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.2);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.1);
         }
 
         .submit-btn {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 14px 30px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 25px;
             border: none;
-            border-radius: 8px;
+            border-radius: var(--radius);
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .submit-btn i {
-            margin-left: 8px;
+            width: 100%;
         }
 
         .submit-btn:hover {
-            background-color: var(--primary-dark);
+            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
         }
 
-        /* Map Section */
-        .map-container {
-            margin-top: -40px;
-            margin-bottom: 80px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 400px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            border: none;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--footer-bg);
+        #success-message {
+            display: none;
+            background: #4caf50;
             color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary-color);
-        }
-
-        .footer-section p {
-            color: #cbd5e0;
-            margin-bottom: 15px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #cbd5e0;
-            text-decoration: none;
-            transition: var(--transition);
-            display: block;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .contact-info-footer {
+            padding: 15px;
+            border-radius: var(--radius);
             margin-top: 20px;
-        }
-
-        .contact-info-footer p {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .contact-info-footer i {
-            margin-right: 10px;
-            color: var(--primary-color);
-        }
-
-        .footer-bottom {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #2d3748;
-            color: #cbd5e0;
-            font-size: 14px;
         }
 
-        /* Responsive Enhancements */
-        @media (max-width: 1200px) {
-            .container { max-width: 1000px; }
-        }
-        @media (max-width: 992px) {
-            .container { max-width: 90vw; }
-            .contact-container, .footer-content { grid-template-columns: 1fr 1fr; }
-        }
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container { max-width: 98vw; padding: 0 8px; }
-            .nav-links { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: var(--card-background); flex-direction: column; align-items: center; box-shadow: var(--shadow-md); z-index: 999; opacity: 0; transform: translateY(-20px); transition: all var(--transition); }
-            .nav-links.active { display: flex; opacity: 1; transform: translateY(0); }
-            .nav-links li { margin: 15px 0; }
-            .mobile-menu-btn { display: block; }
-            .contact-container, .footer-content { grid-template-columns: 1fr; }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-hero {
+                padding: 60px 0;
+            }
+
+            .contact-hero h1 {
+                font-size: 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
         }
-        @media (max-width: 576px) {
-            .contact-hero { padding: 60px 0; }
-            .contact-hero h1 { font-size: 1.2rem; }
-            .footer-content { gap: 18px; }
-            .footer-section { text-align: center; }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 20px;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <nav class="main-navbar">
-                <a href="index.html" class="logo"><i class="fas fa-graduation-cap"></i> YG Learning Platform</a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    YG Learning Platform
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="courses.html">Courses</a></li>
-                    <!-- <li><a href="pricing.html">Pricing</a></li> -->
+                    <li><a href="pricing.html">Pricing</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="Enroll.html" class="nav-btn">Enroll Now</a></li>
+                    <li><a href="Enroll.html">Enroll Now</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="contact-hero">
-            <div class="container">
-                <h1>Contact Us</h1>
-                <p>We're here to help! Reach out for any questions or support.</p>
-            </div>
-        </section>
-
+    <section class="contact-hero">
         <div class="container">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Contact Information</h2>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h3>Our Location</h3>
-                                <p>123 Education Street, Learning City, LC 12345</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h3>Phone Number</h3>
-                                <p>0768149739</p>
-                                <p>0745221252</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h3>Email Address</h3>
-                                <p>yglearningplatform2025@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h3>Working Hours</h3>
-                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+            <h1>Get in Touch</h1>
+            <p>Have questions about our courses? Want to learn more about YG Learning Platform? We're here to help!</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>yglearningplatform2025@gmail.com</p>
                     </div>
                 </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>0768149739</p>
+                        <p>0745221252</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Online (YG Learning Platform)</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Operating Hours</h4>
+                        <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                        <p>Saturday: 9:00 AM - 3:00 PM</p>
+                    </div>
+                </div>
+            </div>
 
-                <div class="contact-form">
-                    <h2>Send Us a Message</h2>
-                    <form id="contactForm" action="https://script.google.com/macros/s/AKfycby3x4d45SnnIXF2e3zcS9UYRF3XkDxGhOOjZy0fPY6_Nz9r-YR-vi5-Vf_T5aEc94RNuQ/exec" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            Send Message <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                
-    <!-- Success Popup -->
-<div id="success-popup" class="popup">
-    <div class="popup-content">
-        <i class="fas fa-check-circle"></i>
-        <h3>Thank you!</h3>
-        <p>Your message was sent successfully.</p>
-        <button onclick="closePopup()">Close</button>
+            <div class="contact-form">
+                <h3>Send us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" placeholder="Subject of your message" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                <div id="success-message">
+                    Thank you for your message! We'll get back to you soon.
+                </div>
+                <div id="error-message" style="display:none; background:#ff4d4f; color:white; padding:15px; border-radius:12px; margin-top:10px; text-align:center;">Error sending message. Please try again.</div>
+            </div>
+        </div>
     </div>
-</div>
-
-<style>
-    .popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-}
-
-.popup-content {
-    background: #fff;
-    padding: 30px;
-    text-align: center;
-    border-radius: 10px;
-    animation: fadeIn 0.4s ease-in-out;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.popup-content i {
-    font-size: 48px;
-    color: #4CAF50;
-    margin-bottom: 15px;
-}
-
-.popup-content h3 {
-    margin: 10px 0;
-    color: #333;
-}
-
-.popup-content p {
-    color: #666;
-}
-
-.popup-content button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.popup-content button:hover {
-    background: #388e3c;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-</style>
-
-                </div>
-                
-                <script>
-                    const form = document.getElementById('contactForm');
-                
-                    form.addEventListener('submit', function(e) {
-                        e.preventDefault();
-                        const data = new FormData(form);
-                
-                        fetch(form.action, {
-                            method: 'POST',
-                            body: data
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                form.reset();
-                                document.getElementById('success-popup').style.display = 'flex';
-                            } else {
-                                alert('Something went wrong. Please try again.');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error!', error.message);
-                            alert('Error sending message.');
-                        });
-                    });
-                
-                    function closePopup() {
-                        document.getElementById('success-popup').style.display = 'none';
-                    }
-                </script>
-                
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573291172!2d-73.9878449241646!3d40.74844097138962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>YG Learning Platform</h3>
-                    <p>Empowering students with quality education through innovative learning solutions.</p>
-                    <div class="social-links" style="margin-top: 20px;">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="courses.html">Our Courses</a></li>
-                        <li><a href="pricing.html">Pricing Plans</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Courses</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Mathematics</a></li>
-                        <li><a href="#">Science</a></li>
-                        <li><a href="#">Languages</a></li>
-                        <li><a href="#">Programming</a></li>
-                        <li><a href="#">Test Preparation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <div class="contact-info-footer">
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Education St, Learning City, LC 12345</p>
-                        <p><i class="fas fa-phone-alt"></i> 0768149739</p>
-                        <p><i class="fas fa-phone-alt"></i> 0745221252</p>
-                        <p><i class="fas fa-envelope"></i> yglearningplatform2025@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 YG Learning Platform. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ff6b6b;"></i> by YG Team</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
+        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
+
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Basic validation
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('phone', phone);
+            formData.append('email', email);
+            formData.append('subject', subject);
+            formData.append('message', message);
+            fetch('https://script.google.com/macros/s/AKfycbyS49BQDj6d9f3eQLbr76pv9gsAZXZ-uBqnBsy1PRZu7j4quQXKshvcO03hiZtaQWu6/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    contactForm.reset();
+                    errorMessage.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'block';
+            });
         });
     </script>
 </body>

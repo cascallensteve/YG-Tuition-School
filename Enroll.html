@@ -895,6 +895,223 @@
         @media (min-width: 901px) {
             .mobile-menu-btn { display: none !important; }
         }
+        /* Advanced subject picker styles */
+        .subject-picker {
+            position: relative;
+            background: #f0f4ff;
+            border-radius: 18px;
+            border: 2px solid var(--primary);
+            padding: 10px 12px;
+            min-height: 54px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 12px rgba(63,81,181,0.07);
+        }
+        .selected-subjects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .subject-pill {
+            background: linear-gradient(90deg, #4361ee 60%, #4cc9f0 100%);
+            color: #fff;
+            border-radius: 16px;
+            padding: 6px 16px;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 1px 4px rgba(67,97,238,0.10);
+            animation: fadeIn 0.3s;
+        }
+        .subject-pill button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.1rem;
+            margin-left: 4px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .subject-pill button:hover {
+            color: #ffb4b4;
+        }
+        #subjectInput {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 1.1rem;
+            color: #4361ee;
+            flex: 1;
+            min-width: 120px;
+            padding: 6px 0;
+        }
+        .subject-dropdown {
+            position: absolute;
+            left: 0; right: 0; top: 100%;
+            background: #fff;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 18px rgba(67,97,238,0.10);
+            z-index: 10;
+            max-height: 180px;
+            overflow-y: auto;
+            display: none;
+            margin-top: 2px;
+        }
+        .subject-dropdown .dropdown-item {
+            padding: 10px 18px;
+            cursor: pointer;
+            color: #4361ee;
+            font-weight: 500;
+            transition: background 0.18s, color 0.18s;
+        }
+        .subject-dropdown .dropdown-item:hover {
+            background: #e3e9f7;
+            color: #222;
+        }
+        /* Progress Bar */
+        .enroll-progress-bar {
+            width: 100%;
+            height: 7px;
+            background: #e3e9f7;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            overflow: hidden;
+            position: relative;
+        }
+        .enroll-progress-bar div {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #4361ee 60%, #4cc9f0 100%);
+            border-radius: 8px;
+            transition: width 0.5s cubic-bezier(0.4,0.2,0.2,1);
+        }
+        /* Stepper Icons */
+        .enroll-stepper .step span {
+            background: #fff;
+            color: #4361ee;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            margin-right: 7px;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(67,97,238,0.08);
+            transition: background 0.3s, color 0.3s;
+        }
+        .enroll-stepper .step.active span {
+            background: linear-gradient(90deg, #4361ee 60%, #4cc9f0 100%);
+            color: #fff;
+        }
+        .enroll-stepper .step {
+            transition: color 0.3s;
+        }
+        .enroll-stepper .step.active {
+            color: #4361ee;
+            font-weight: 700;
+        }
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 12px 40px rgba(67,97,238,0.18), 0 2px 8px rgba(0,0,0,0.08);
+            border: 1.5px solid #e3e9f7;
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            animation: fadeInUp 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        /* Floating SVG Shapes */
+        .animated-bg .float-shape {
+            position: absolute;
+            animation: float 7s ease-in-out infinite alternate;
+        }
+        .animated-bg .float-shape:nth-child(3) {
+            top: 10%; left: 8%; animation-delay: 0s;
+        }
+        .animated-bg .float-shape:nth-child(4) {
+            bottom: 12%; right: 10%; animation-delay: 2s;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-30px) scale(1.08); }
+        }
+        /* Button Ripple Effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple:after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            width: 100px; height: 100px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgba(67,97,238,0.18);
+            transition: transform 0.4s, opacity 0.8s;
+            opacity: 0;
+        }
+        .ripple:active:after {
+            transform: translate(-50%, -50%) scale(1.2);
+            opacity: 1;
+            transition: 0s;
+        }
+        /* Input Focus Glow */
+        input:focus, select:focus, textarea:focus {
+            border-color: #4cc9f0;
+            box-shadow: 0 0 0 3px rgba(76,201,240,0.13);
+            outline: none;
+        }
+        /* Subject Picker Icon */
+        .subject-dropdown .dropdown-item:before {
+            content: '\f02d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #4cc9f0;
+            margin-right: 10px;
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+        .subject-dropdown .dropdown-item[data-subject="Mathematics"]:before { content: '\f1ec'; }
+        .subject-dropdown .dropdown-item[data-subject="English"]:before { content: '\f02d'; }
+        .subject-dropdown .dropdown-item[data-subject="Kiswahili"]:before { content: '\f02d'; }
+        .subject-dropdown .dropdown-item[data-subject="Physics"]:before { content: '\f0c3'; }
+        .subject-dropdown .dropdown-item[data-subject="Chemistry"]:before { content: '\f0c3'; }
+        .subject-dropdown .dropdown-item[data-subject="Biology"]:before { content: '\f1b3'; }
+        .subject-dropdown .dropdown-item[data-subject="History"]:before { content: '\f1da'; }
+        .subject-dropdown .dropdown-item[data-subject="Geography"]:before { content: '\f279'; }
+        .subject-pill:before {
+            content: '\f02d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #fff;
+            margin-right: 7px;
+            font-size: 1em;
+            vertical-align: middle;
+        }
+        .subject-pill[data-subject="Mathematics"]:before { content: '\f1ec'; }
+        .subject-pill[data-subject="English"]:before { content: '\f02d'; }
+        .subject-pill[data-subject="Kiswahili"]:before { content: '\f02d'; }
+        .subject-pill[data-subject="Physics"]:before { content: '\f0c3'; }
+        .subject-pill[data-subject="Chemistry"]:before { content: '\f0c3'; }
+        .subject-pill[data-subject="Biology"]:before { content: '\f1b3'; }
+        .subject-pill[data-subject="History"]:before { content: '\f1da'; }
+        .subject-pill[data-subject="Geography"]:before { content: '\f279'; }
+        /* Animated pill appearance */
+        @keyframes pillIn {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .subject-pill { animation: pillIn 0.25s; }
     </style>
 </head>
 <body>
@@ -919,6 +1136,8 @@
     <div class="animated-bg">
         <svg viewBox="0 0 1440 320"><path fill="#2563eb" fill-opacity="0.3" d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,133.3C840,107,960,85,1080,101.3C1200,117,1320,171,1380,197.3L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
         <svg viewBox="0 0 1440 320"><path fill="#60a5fa" fill-opacity="0.2" d="M0,224L60,197.3C120,171,240,117,360,117.3C480,117,600,171,720,197.3C840,224,960,224,1080,197.3C1200,171,1320,117,1380,90.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+        <svg class="float-shape" width="80" height="80"><circle cx="40" cy="40" r="36" fill="#4cc9f0" fill-opacity="0.18"/></svg>
+        <svg class="float-shape" width="60" height="60"><rect x="10" y="10" width="40" height="40" rx="12" fill="#4361ee" fill-opacity="0.13"/></svg>
     </div>
 
     <section class="enroll-hero">
@@ -935,78 +1154,106 @@
 
     <div class="container">
         <!-- ENROLLMENT FORM START -->
-        <form id="enrollForm" action="https://script.google.com/macros/s/AKfycby3x4d45SnnIXF2e3zcS9UYRF3XkDxGhOOjZy0fPY6_Nz9r-YR-vi5-Vf_T5aEc94RNuQ/exec" method="POST" class="enroll-card animate-fadeInUp">
+        <form id="enrollForm" class="enroll-card animate-fadeInUp glass-card">
             <div class="enroll-header">
-                <div class="enroll-stepper">
-                    <div class="step active"><span>1</span> Subjects</div>
-                    <div class="step active"><span>2</span> Details</div>
-                    <div class="step active"><span>3</span> Submit</div>
+                <div class="enroll-progress-bar" id="enrollProgressBar"><div></div></div>
+                <div class="enroll-stepper" id="enrollStepper">
+                    <div class="step active" data-step="1"><span><i class="fas fa-list-ul"></i></span> Subjects</div>
+                    <div class="step" data-step="2"><span><i class="fas fa-user-graduate"></i></span> Student</div>
+                    <div class="step" data-step="3"><span><i class="fas fa-users"></i></span> Parent</div>
+                    <div class="step" data-step="4"><span><i class="fas fa-check"></i></span> Review</div>
                 </div>
                 <h2>Enroll in YG Learning Platform</h2>
-                <p>All classes are <b>Online</b>. Select your subjects and enter your details below.</p>
+                <p>All classes are <b>Online</b>. Complete the steps below to enroll.</p>
             </div>
-            <div class="form-group">
-                <label for="subjects">Select Subjects <span style="color: var(--secondary);">*</span></label>
-                <div id="subjectCheckboxes" class="subject-pills">
-                    <label><input type="checkbox" name="subjects" value="Mathematics"><span>Mathematics</span></label>
-                    <label><input type="checkbox" name="subjects" value="English"><span>English</span></label>
-                    <label><input type="checkbox" name="subjects" value="Kiswahili"><span>Kiswahili</span></label>
-                    <label><input type="checkbox" name="subjects" value="Physics"><span>Physics</span></label>
-                    <label><input type="checkbox" name="subjects" value="Chemistry"><span>Chemistry</span></label>
-                    <label><input type="checkbox" name="subjects" value="Biology"><span>Biology</span></label>
-                    <label><input type="checkbox" name="subjects" value="History"><span>History</span></label>
-                    <label><input type="checkbox" name="subjects" value="Geography"><span>Geography</span></label>
+            <!-- Step 1: Subject Selection -->
+            <div class="form-step" id="step-1">
+                <div class="form-group">
+                    <label for="subjects">Select Subjects <span style="color: var(--secondary);">*</span></label>
+                    <div id="subjectPicker" class="subject-picker" aria-label="Subject Picker">
+                        <div class="selected-subjects" id="selectedSubjects"></div>
+                        <input type="text" id="subjectInput" placeholder="Type or select subjects..." autocomplete="off" aria-label="Subject Input" />
+                        <div class="subject-dropdown" id="subjectDropdown" role="listbox"></div>
+                    </div>
+                    <small style="color: var(--text-light); display: block; margin-top: 6px;">You can select multiple subjects.</small>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary ripple" id="toStep2">Next</button>
                 </div>
             </div>
-            <div class="form-group icon-input">
-                <label for="fullName">Full Name <span style="color: var(--secondary);">*</span></label>
-                <div class="input-icon"><i class="fas fa-user"></i><input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required></div>
-            </div>
-            <div class="form-group icon-input">
-                <label for="email">Email Address <span style="color: var(--secondary);">*</span></label>
-                <div class="input-icon"><i class="fas fa-envelope"></i><input type="email" id="email" name="email" placeholder="Enter your email address" required></div>
-            </div>
-            <div class="form-group icon-input">
-                <label for="phone">Phone Number <span style="color: var(--secondary);">*</span></label>
-                <div class="input-icon"><i class="fas fa-phone"></i><input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required></div>
-            </div>
-            <div class="form-group icon-input">
-                <label for="school">Current School</label>
-                <div class="input-icon"><i class="fas fa-school"></i><input type="text" id="school" name="school" placeholder="Enter your school name"></div>
-            </div>
-            <div class="form-group icon-input">
-                <label for="formClass">Form/Class</label>
-                <div class="input-icon"><i class="fas fa-graduation-cap"></i>
-                    <select id="formClass" name="formClass">
-                        <option value="">Select your class</option>
-                        <option value="Form 1">Form 1</option>
-                        <option value="Form 2">Form 2</option>
-                        <option value="Form 3">Form 3</option>
-                        <option value="Form 4">Form 4</option>
-                    </select>
+            <!-- Step 2: Student Details -->
+            <div class="form-step" id="step-2" style="display:none;">
+                <div class="form-group icon-input">
+                    <label for="fullName">Full Name <span style="color: var(--secondary);">*</span></label>
+                    <div class="input-icon"><i class="fas fa-user"></i><input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required aria-label="Full Name"></div>
+                </div>
+                <div class="form-group icon-input">
+                    <label for="email">Email Address <span style="color: var(--secondary);">*</span></label>
+                    <div class="input-icon"><i class="fas fa-envelope"></i><input type="email" id="email" name="email" placeholder="Enter your email address" required aria-label="Email"></div>
+                </div>
+                <div class="form-group icon-input">
+                    <label for="phone">Phone Number <span style="color: var(--secondary);">*</span></label>
+                    <div class="input-icon"><i class="fas fa-phone"></i><input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required aria-label="Phone"></div>
+                </div>
+                <div class="form-group icon-input">
+                    <label for="school">Current School</label>
+                    <div class="input-icon"><i class="fas fa-school"></i><input type="text" id="school" name="school" placeholder="Enter your school name" aria-label="School"></div>
+                </div>
+                <div class="form-group icon-input">
+                    <label for="formClass">Form/Class</label>
+                    <div class="input-icon"><i class="fas fa-graduation-cap"></i>
+                        <select id="formClass" name="formClass" aria-label="Form/Class">
+                            <option value="">Select your class</option>
+                            <option value="Form 1">Form 1</option>
+                            <option value="Form 2">Form 2</option>
+                            <option value="Form 3">Form 3</option>
+                            <option value="Form 4">Form 4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary ripple" id="backToStep1">Back</button>
+                    <button type="button" class="btn btn-primary ripple" id="toStep3">Next</button>
                 </div>
             </div>
-            <div class="form-group icon-input">
-                <label for="parentName">Parent/Guardian Name</label>
-                <div class="input-icon"><i class="fas fa-user-friends"></i><input type="text" id="parentName" name="parentName" placeholder="Enter parent/guardian name"></div>
+            <!-- Step 3: Parent/Guardian Details -->
+            <div class="form-step" id="step-3" style="display:none;">
+                <div class="form-group icon-input">
+                    <label for="parentName">Parent/Guardian Name</label>
+                    <div class="input-icon"><i class="fas fa-user-friends"></i><input type="text" id="parentName" name="parentName" placeholder="Enter parent/guardian name" aria-label="Parent Name"></div>
+                </div>
+                <div class="form-group icon-input">
+                    <label for="parentPhone">Parent/Guardian Phone</label>
+                    <div class="input-icon"><i class="fas fa-phone-alt"></i><input type="tel" id="parentPhone" name="parentPhone" placeholder="Enter parent/guardian phone" aria-label="Parent Phone"></div>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Additional Notes (Optional)</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any special requirements or notes" aria-label="Notes"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" value="Online (YG Learning Platform)" readonly style="background: #f5f7fa; color: #888;">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary ripple" id="backToStep2">Back</button>
+                    <button type="button" class="btn btn-primary ripple" id="toStep4">Next</button>
+                </div>
             </div>
-            <div class="form-group icon-input">
-                <label for="parentPhone">Parent/Guardian Phone</label>
-                <div class="input-icon"><i class="fas fa-phone-alt"></i><input type="tel" id="parentPhone" name="parentPhone" placeholder="Enter parent/guardian phone"></div>
-            </div>
-            <div class="form-group">
-                <label for="notes">Additional Notes (Optional)</label>
-                <textarea id="notes" name="notes" rows="3" placeholder="Any special requirements or notes"></textarea>
-            </div>
-            <div class="form-group">
-                <label>Location</label>
-                <input type="text" value="Online (YG Learning Platform)" readonly style="background: #f5f7fa; color: #888;">
-            </div>
-            <button type="submit" class="btn btn-primary enroll-btn">Submit Enrollment</button>
-            <div id="enroll-success" class="enroll-success">
-                <i class="fas fa-check-circle"></i><br>
-                Thank you for enrolling! Your details have been received.<br>
-                <b>All classes are online via YG Learning Platform.</b>
+            <!-- Step 4: Review & Submit -->
+            <div class="form-step" id="step-4" style="display:none;">
+                <div class="form-group">
+                    <h3 style="color: var(--primary); margin-bottom: 12px;">Review Your Details</h3>
+                    <div id="reviewDetails" style="background: #f0f4ff; border-radius: 12px; padding: 18px; margin-bottom: 18px;"></div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary ripple" id="backToStep3">Back</button>
+                    <button type="submit" class="btn btn-primary enroll-btn ripple">Submit Enrollment</button>
+                </div>
+                <div id="enroll-success" class="enroll-success">
+                    <i class="fas fa-check-circle"></i><br>
+                    Thank you for enrolling! Your details have been received.<br>
+                    <b>All classes are online via YG Learning Platform.</b>
+                </div>
             </div>
         </form>
         <!-- ENROLLMENT FORM END -->
@@ -1052,34 +1299,7 @@
 
     <script>
         // Custom form submission for Google Sheets
-        const enrollForm = document.getElementById('enrollForm');
-        const enrollSuccess = document.getElementById('enroll-success');
-
-        if (enrollForm) {
-            enrollForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const formData = new FormData(enrollForm);
-                // Collect selected subjects as comma-separated string
-                const subjects = Array.from(document.querySelectorAll('input[name="subjects"]:checked')).map(cb => cb.value).join(', ');
-                formData.set('subjects', subjects);
-                fetch(enrollForm.action, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (response.ok) {
-                        enrollForm.reset();
-                        enrollSuccess.style.display = 'block';
-                        enrollForm.querySelector('button[type="submit"]').style.display = 'none';
-                    } else {
-                        alert('Something went wrong. Please try again.');
-                    }
-                })
-                .catch(error => {
-                    alert('Error sending enrollment.');
-                });
-            });
-        }
+        // (Declarations moved below to avoid redeclaration)
 
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
@@ -1087,6 +1307,184 @@
             navLinks.classList.toggle('active');
             mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
+
+        // --- Multi-step form logic and advanced subject picker ---
+        const subjectsList = [
+            "Mathematics", "English", "Kiswahili", "Physics", "Chemistry", "Biology", "History", "Geography"
+        ];
+        let selectedSubjects = [];
+
+        // Subject picker UI
+        const subjectInput = document.getElementById('subjectInput');
+        const subjectDropdown = document.getElementById('subjectDropdown');
+        const selectedSubjectsDiv = document.getElementById('selectedSubjects');
+
+        function updateSubjectDropdown() {
+            const val = subjectInput.value.toLowerCase();
+            subjectDropdown.innerHTML = '';
+            const filtered = subjectsList.filter(s => s.toLowerCase().includes(val) && !selectedSubjects.includes(s));
+            filtered.forEach(subject => {
+                const div = document.createElement('div');
+                div.className = 'dropdown-item';
+                div.setAttribute('data-subject', subject);
+                div.textContent = subject;
+                div.onclick = () => {
+                    selectedSubjects.push(subject);
+                    updateSelectedSubjects();
+                    subjectInput.value = '';
+                    updateSubjectDropdown();
+                };
+                subjectDropdown.appendChild(div);
+            });
+            subjectDropdown.style.display = filtered.length ? 'block' : 'none';
+        }
+
+        function updateSelectedSubjects() {
+            selectedSubjectsDiv.innerHTML = '';
+            selectedSubjects.forEach(subject => {
+                const pill = document.createElement('span');
+                pill.className = 'subject-pill';
+                pill.setAttribute('data-subject', subject);
+                pill.textContent = subject;
+                const removeBtn = document.createElement('button');
+                removeBtn.type = 'button';
+                removeBtn.innerHTML = '&times;';
+                removeBtn.onclick = () => {
+                    selectedSubjects = selectedSubjects.filter(s => s !== subject);
+                    updateSelectedSubjects();
+                    updateSubjectDropdown();
+                };
+                pill.appendChild(removeBtn);
+                selectedSubjectsDiv.appendChild(pill);
+            });
+        }
+
+        subjectInput.addEventListener('input', updateSubjectDropdown);
+        subjectInput.addEventListener('focus', updateSubjectDropdown);
+        document.addEventListener('click', (e) => {
+            if (!subjectInput.contains(e.target) && !subjectDropdown.contains(e.target)) {
+                subjectDropdown.style.display = 'none';
+            }
+        });
+
+        // Allow enter to select first dropdown item
+        subjectInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && subjectDropdown.firstChild) {
+                e.preventDefault();
+                subjectDropdown.firstChild.click();
+            }
+        });
+
+        // Stepper logic
+        const steps = [
+            document.getElementById('step-1'),
+            document.getElementById('step-2'),
+            document.getElementById('step-3'),
+            document.getElementById('step-4')
+        ];
+        const stepper = document.getElementById('enrollStepper').children;
+        const progressBar = document.getElementById('enrollProgressBar').firstElementChild;
+        function showStep(idx) {
+            steps.forEach((step, i) => {
+                if (i === idx) {
+                    step.style.display = '';
+                    step.classList.add('animate-fadeInUp');
+                } else {
+                    step.style.display = 'none';
+                    step.classList.remove('animate-fadeInUp');
+                }
+            });
+            Array.from(stepper).forEach((el, i) => {
+                el.classList.toggle('active', i <= idx);
+            });
+            // Animate progress bar
+            progressBar.style.width = ((idx+1)/steps.length*100) + '%';
+        }
+        // Step navigation
+        let currentStep = 0;
+        showStep(currentStep);
+
+        document.getElementById('toStep2').onclick = function() {
+            if (selectedSubjects.length === 0) {
+                subjectInput.focus();
+                subjectDropdown.style.display = 'block';
+                return;
+            }
+            showStep(1);
+            currentStep = 1;
+        };
+        document.getElementById('backToStep1').onclick = function() { showStep(0); currentStep = 0; };
+        document.getElementById('toStep3').onclick = function() {
+            // Validate student details
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            if (!fullName || !email || !phone) {
+                alert('Please fill in all required student details.');
+                return;
+            }
+            showStep(2);
+            currentStep = 2;
+        };
+        document.getElementById('backToStep2').onclick = function() { showStep(1); currentStep = 1; };
+        document.getElementById('toStep4').onclick = function() {
+            // No required fields for parent step
+            // Fill review
+            const review = document.getElementById('reviewDetails');
+            review.innerHTML = `
+                <b>Subjects:</b> ${selectedSubjects.join(', ')}<br>
+                <b>Full Name:</b> ${document.getElementById('fullName').value}<br>
+                <b>Email:</b> ${document.getElementById('email').value}<br>
+                <b>Phone:</b> ${document.getElementById('phone').value}<br>
+                <b>School:</b> ${document.getElementById('school').value}<br>
+                <b>Form/Class:</b> ${document.getElementById('formClass').value}<br>
+                <b>Parent/Guardian Name:</b> ${document.getElementById('parentName').value}<br>
+                <b>Parent/Guardian Phone:</b> ${document.getElementById('parentPhone').value}<br>
+                <b>Notes:</b> ${document.getElementById('notes').value}<br>
+                <b>Location:</b> Online (YG Learning Platform)
+            `;
+            showStep(3);
+            currentStep = 3;
+        };
+        document.getElementById('backToStep3').onclick = function() { showStep(2); currentStep = 2; };
+
+        // Form submit
+        const enrollForm = document.getElementById('enrollForm');
+        const enrollSuccess = document.getElementById('enroll-success');
+        enrollForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Collect all data
+            const formData = new FormData();
+            formData.append('subjects', selectedSubjects.join(', '));
+            formData.append('fullName', document.getElementById('fullName').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('school', document.getElementById('school').value);
+            formData.append('formClass', document.getElementById('formClass').value);
+            formData.append('parentName', document.getElementById('parentName').value);
+            formData.append('parentPhone', document.getElementById('parentPhone').value);
+            formData.append('notes', document.getElementById('notes').value);
+            fetch('https://script.google.com/macros/s/AKfycbwfau026lUQu_PMEJQ6nc1mJGCdNfRrTjLobW1hhJ8TApn_pqRGh-JVZOo-2vRblS0/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    enrollForm.reset();
+                    selectedSubjects = [];
+                    updateSelectedSubjects();
+                    showStep(3);
+                    enrollSuccess.style.display = 'block';
+                    enrollForm.querySelector('button[type="submit"]').style.display = 'none';
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('Error sending enrollment.');
+            });
+        });
+        // --- End multi-step logic ---
     </script>
 </body>
 </html>

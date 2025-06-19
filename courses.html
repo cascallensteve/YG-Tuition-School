@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenyan High School Tuition - Excellence Learning Platform</title>
+    <title>yglearningplatform2025- Excellence Learning Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -460,75 +460,46 @@
             }
         }
 
-        /* Responsive Styles */
+        /* Responsive Enhancements */
+        @media (max-width: 1200px) {
+            .container { max-width: 1000px; }
+        }
         @media (max-width: 992px) {
-            .school-header h1 {
-                font-size: 36px;
-            }
-            
-            .course-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
+            .container { max-width: 90vw; }
+            .features-grid, .course-grid, .footer-content { grid-template-columns: 1fr 1fr; }
+            .carousel-image { height: 250px; }
         }
-
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .school-header {
-                padding: 80px 0;
-            }
-            
-            .school-header h1 {
-                font-size: 32px;
-            }
-            
-            .school-header p {
-                font-size: 18px;
-            }
-            
-            .carousel-image {
-                height: 400px;
-            }
+            .container { max-width: 98vw; padding: 0 8px; }
+            .nav-links { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: var(--white); flex-direction: column; align-items: center; box-shadow: var(--shadow-md); z-index: 999; opacity: 0; transform: translateY(-20px); transition: all var(--transition); }
+            .nav-links.active { display: flex; opacity: 1; transform: translateY(0); }
+            .nav-links li { margin: 15px 0; }
+            .mobile-menu-btn { display: block; }
+            .school-header { padding: 60px 0; }
+            .school-header h1 { font-size: 28px; }
+            .features-grid, .course-grid, .footer-content { grid-template-columns: 1fr; }
+            .carousel-image { height: 140px; }
         }
-
         @media (max-width: 576px) {
-            .school-header {
-                padding: 60px 0;
-            }
-            
-            .school-header h1 {
-                font-size: 28px;
-            }
-            
-            .course-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .carousel-image {
-                height: 300px;
-            }
+            .school-header { padding: 40px 0; }
+            .school-header h1 { font-size: 1.2rem; }
+            .footer-content { gap: 18px; }
+            .footer-section { text-align: center; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <i class="fas fa-graduation-cap"></i>
-                    Excellence Tuition
-                </a>
-                <ul class="nav-links">
+            <nav class="main-navbar">
+                <a href="index.html" class="logo"><i class="fas fa-graduation-cap"></i> YG Learning Platform</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="courses.html" class="active">Courses</a></li>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Enroll.html" class="nav-btn">Enroll Now</a></li>
                 </ul>
             </nav>
         </div>
@@ -536,8 +507,8 @@
 
     <section class="school-header">
         <div class="container">
-            <h1>KCSE & KCPE Tuition Program-Yg-Tuition Program </h1>
-            <p>Personalized learning for Kenyan high school students to excel in national exams</p>
+            <h1>Our Courses</h1>
+            <p>Explore our wide range of subjects and programs for all levels.</p>
         </div>
     </section>
 
@@ -720,11 +691,12 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Excellence Tuition</h3>
-                    <p>Specialized KCSE and KCPE tuition center helping Kenyan students achieve academic excellence since 2010.</p>
+                    <h3>YG Learning Platform</h3>
+                    <p>Empowering students with quality education</p>
                     <div style="margin-top: 20px;">
-                        <i class="fas fa-phone"></i> +254 700 123 456<br>
-                        <i class="fas fa-envelope"></i> info@excellencetuition.co.ke
+                        <i class="fas fa-phone"></i> 0768149739<br>
+                        <i class="fas fa-phone"></i> 0745221252<br>
+                        <i class="fas fa-envelope"></i> yglearningplatform2025@gmail.com
                     </div>
                 </div>
                 <div class="footer-section">
@@ -734,13 +706,13 @@
                         <li><a href="courses.html">Courses</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="Enroll.html">Enroll</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Popular Courses</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Mathematics</a></li>
+                        <li><a href="#mathematics">Mathematics</a></li>
                         <li><a href="#">Physics</a></li>
                         <li><a href="#">Chemistry</a></li>
                         <li><a href="#">Biology</a></li>

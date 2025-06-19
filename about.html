@@ -454,26 +454,47 @@
                 font-size: 2rem;
             }
         }
+
+        /* Responsive Enhancements */
+        @media (max-width: 1200px) {
+            .container { max-width: 1000px; }
+        }
+        @media (max-width: 992px) {
+            .container { max-width: 90vw; }
+            .mission-vision .container, .features-grid, .team-grid, .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .container { max-width: 98vw; padding: 0 8px; }
+            .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: var(--white); flex-direction: column; align-items: center; justify-content: center; transition: var(--transition); }
+            .nav-links.active { left: 0; }
+            .nav-links li { margin: 15px 0; }
+            .about-hero { padding: 80px 0 40px; }
+            .about-hero h1 { font-size: 2rem; }
+            .mission-vision .container, .features-grid, .team-grid, .footer-content { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 576px) {
+            .about-hero { padding: 60px 0 30px; }
+            .about-hero h1 { font-size: 1.3rem; }
+            .footer-content { gap: 18px; }
+            .footer-section { text-align: center; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-graduation-cap"></i>
-                YG Learning
-            </a>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links">
+        <nav class="main-navbar">
+            <a href="index.html" class="logo"><i class="fas fa-graduation-cap"></i> YG Learning Platform</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="courses.html">Courses</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
+                <!-- <li><a href="pricing.html">Pricing</a></li> -->
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="Enroll.html" class="nav-btn">Enroll Now</a></li>
             </ul>
-         
         </nav>
     </header>
 
@@ -481,7 +502,7 @@
         <section class="about-hero">
             <div class="container">
                 <h1>About YG Learning Platform</h1>
-                <p>Empowering high school students with quality education at affordable rates</p>
+                <p>Empowering students with quality online education and expert tutors.</p>
             </div>
         </section>
 
@@ -570,8 +591,9 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-envelope"></i> info@yglearning.com</p>
-                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> yglearningplatform2025@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 0768149739</p>
+                    <p><i class="fas fa-phone"></i> 0745221252</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -582,38 +604,11 @@
 
 
      <script>
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navLinksItems = document.querySelectorAll('.nav-links a');
-
-    // Toggle mobile menu
-    hamburger.addEventListener('click', () => {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    mobileMenuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        hamburger.innerHTML = navLinks.classList.contains('active') ? 
-            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-    });
-
-    // Close mobile menu when clicking a link
-    navLinksItems.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-            
-            // Smooth scroll to section (uncomment if needed)
-            /*
-            const targetId = link.getAttribute('href');
-            if (targetId.startsWith('#')) {
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-            */
-        });
+        mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
     });
 
     // Sticky header on scroll

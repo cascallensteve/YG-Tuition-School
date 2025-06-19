@@ -456,72 +456,44 @@
             font-size: 14px;
         }
 
-        /* Responsive Styles */
+        /* Responsive Enhancements */
+        @media (max-width: 1200px) {
+            .container { max-width: 1000px; }
+        }
         @media (max-width: 992px) {
-            .contact-container {
-                gap: 30px;
-            }
+            .container { max-width: 90vw; }
+            .contact-container, .footer-content { grid-template-columns: 1fr 1fr; }
         }
-
         @media (max-width: 768px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-hero h1 {
-                font-size: 36px;
-            }
-
-            .contact-hero p {
-                font-size: 16px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .map-container {
-                margin-top: 0;
-            }
+            .container { max-width: 98vw; padding: 0 8px; }
+            .nav-links { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: var(--card-background); flex-direction: column; align-items: center; box-shadow: var(--shadow-md); z-index: 999; opacity: 0; transform: translateY(-20px); transition: all var(--transition); }
+            .nav-links.active { display: flex; opacity: 1; transform: translateY(0); }
+            .nav-links li { margin: 15px 0; }
+            .mobile-menu-btn { display: block; }
+            .contact-container, .footer-content { grid-template-columns: 1fr; }
         }
-
         @media (max-width: 576px) {
-            .contact-hero {
-                padding: 80px 0;
-            }
-
-            .contact-hero h1 {
-                font-size: 30px;
-            }
-
-            .contact-info,
-            .contact-form {
-                padding: 30px 20px;
-            }
-
-            .auth-buttons .btn {
-                padding: 8px 15px;
-                font-size: 14px;
-            }
+            .contact-hero { padding: 60px 0; }
+            .contact-hero h1 { font-size: 1.2rem; }
+            .footer-content { gap: 18px; }
+            .footer-section { text-align: center; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <i class="fas fa-graduation-cap"></i>
-                    YG Learning
-                </a>
-                <ul class="nav-links">
+            <nav class="main-navbar">
+                <a href="index.html" class="logo"><i class="fas fa-graduation-cap"></i> YG Learning Platform</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="courses.html">Courses</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <!-- <li><a href="pricing.html">Pricing</a></li> -->
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Enroll.html" class="nav-btn">Enroll Now</a></li>
                 </ul>
-             
             </nav>
         </div>
     </header>
@@ -529,8 +501,8 @@
     <main>
         <section class="contact-hero">
             <div class="container">
-                <h1>Get In Touch With Us</h1>
-                <p>We're here to help and answer any questions you might have about our learning platform</p>
+                <h1>Contact Us</h1>
+                <p>We're here to help! Reach out for any questions or support.</p>
             </div>
         </section>
 
@@ -554,8 +526,8 @@
                             </div>
                             <div class="contact-text">
                                 <h3>Phone Number</h3>
-                                <p>+1 (234) 567-8910</p>
-                                <p>+1 (987) 654-3210</p>
+                                <p>0768149739</p>
+                                <p>0745221252</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -564,8 +536,7 @@
                             </div>
                             <div class="contact-text">
                                 <h3>Email Address</h3>
-                                <p>info@yglearning.com</p>
-                                <p>support@yglearning.com</p>
+                                <p>yglearningplatform2025@gmail.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -597,7 +568,7 @@
 
                 <div class="contact-form">
                     <h2>Send Us a Message</h2>
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://script.google.com/macros/s/AKfycby3x4d45SnnIXF2e3zcS9UYRF3XkDxGhOOjZy0fPY6_Nz9r-YR-vi5-Vf_T5aEc94RNuQ/exec" method="POST">
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -618,9 +589,113 @@
                             Send Message <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
-                </div>
-            </div>
+                
+    <!-- Success Popup -->
+<div id="success-popup" class="popup">
+    <div class="popup-content">
+        <i class="fas fa-check-circle"></i>
+        <h3>Thank you!</h3>
+        <p>Your message was sent successfully.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</div>
 
+<style>
+    .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    animation: fadeIn 0.4s ease-in-out;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content i {
+    font-size: 48px;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.popup-content h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.popup-content p {
+    color: #666;
+}
+
+.popup-content button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.popup-content button:hover {
+    background: #388e3c;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+                </div>
+                
+                <script>
+                    const form = document.getElementById('contactForm');
+                
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const data = new FormData(form);
+                
+                        fetch(form.action, {
+                            method: 'POST',
+                            body: data
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                form.reset();
+                                document.getElementById('success-popup').style.display = 'flex';
+                            } else {
+                                alert('Something went wrong. Please try again.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error!', error.message);
+                            alert('Error sending message.');
+                        });
+                    });
+                
+                    function closePopup() {
+                        document.getElementById('success-popup').style.display = 'none';
+                    }
+                </script>
+                
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573291172!2d-73.9878449241646!3d40.74844097138962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
             </div>
@@ -672,8 +747,9 @@
                     <h3>Contact Info</h3>
                     <div class="contact-info-footer">
                         <p><i class="fas fa-map-marker-alt"></i> 123 Education St, Learning City, LC 12345</p>
-                        <p><i class="fas fa-phone-alt"></i> +1 (234) 567-8910</p>
-                        <p><i class="fas fa-envelope"></i> info@yglearning.com</p>
+                        <p><i class="fas fa-phone-alt"></i> 0768149739</p>
+                        <p><i class="fas fa-phone-alt"></i> 0745221252</p>
+                        <p><i class="fas fa-envelope"></i> yglearningplatform2025@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -684,27 +760,12 @@
     </footer>
 
     <script>
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send this data to a server
-            console.log('Form submitted:', { name, email, subject, message });
-            
-            // Show success message
-            alert('Thank you for your message! We will get back to you soon.');
-            
-            // Reset form
-            this.reset();
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
-
-        // Mobile menu toggle would go here in a real implementation
     </script>
 </body>
 </html>

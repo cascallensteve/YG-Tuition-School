@@ -911,113 +911,34 @@
         }
 
         /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .container { max-width: 1000px; }
+        }
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 40px;
+            .container { max-width: 90vw; }
+            .features-grid, .stats-grid, .footer-content {
+                grid-template-columns: 1fr 1fr;
             }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .section-title h2 {
-                font-size: 32px;
-            }
+            .carousel-slide img { height: 350px; }
         }
-
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: var(--shadow-md);
-                z-index: 999;
-                opacity: 0;
-                transform: translateY(-20px);
-                transition: all var(--transition);
-            }
-            
-            .nav-links.active {
-                display: flex;
-                opacity: 1;
-                transform: translateY(0);
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero {
-                padding: 100px 0 80px;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .carousel-slide img {
-                height: 400px;
-            }
-            
-            .features {
-                padding: 80px 0;
-            }
+            .container { max-width: 98vw; padding: 0 8px; }
+            .nav-links { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: var(--white); flex-direction: column; align-items: center; box-shadow: var(--shadow-md); z-index: 999; opacity: 0; transform: translateY(-20px); transition: all var(--transition); }
+            .nav-links.active { display: flex; opacity: 1; transform: translateY(0); }
+            .nav-links li { margin: 15px 0; }
+            .mobile-menu-btn { display: block; }
+            .hero { padding: 80px 0 60px; }
+            .hero h1 { font-size: 32px; }
+            .features-grid, .stats-grid, .footer-content { grid-template-columns: 1fr; }
+            .carousel-slide img { height: 220px; }
         }
-
         @media (max-width: 576px) {
-            .hero {
-                padding: 80px 0 60px;
-                clip-path: ellipse(120% 100% at 50% 0%);
-            }
-            
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .hero-btn {
-                padding: 12px 25px;
-            }
-            
-            .section-title h2 {
-                font-size: 28px;
-            }
-            
-            .section-title p {
-                font-size: 16px;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .carousel-slide img {
-                height: 300px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta h2 {
-                font-size: 28px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
+            .hero { padding: 60px 0 40px; }
+            .hero h1 { font-size: 22px; }
+            .section-title h2 { font-size: 22px; }
+            .footer-content { gap: 18px; }
+            .footer-column, .footer-section { text-align: center; }
+            .carousel-slide img { height: 140px; }
         }
     </style>
 </head>
@@ -1025,30 +946,16 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <i class="fas fa-graduation-cap"></i>
-                    YG Learning
-                </a>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
+            <nav class="main-navbar">
+                <a href="index.html" class="logo"><i class="fas fa-graduation-cap"></i> YG Learning Platform</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="pricing.html"></a></li>
-                    <li><a href="contact.html">Contact</li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Enroll.html" class="nav-btn">Enroll Now</a></li>
                 </ul>
-                
-                <div class="auth-buttons">
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-              
-                </div>
             </nav>
         </div>
     </header>
@@ -1056,9 +963,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Premium Tuition for Academic Excellence</h1>
-            <p>Personalized learning experiences designed to help students achieve their full potential with our expert tutors and comprehensive resources.</p>
-            <a href="courses.html" class="hero-btn">Get Started Today</a>
+            <h1>Empowering Students for Success</h1>
+            <p>Premium online tuition for the Kenyan curriculum. Learn, grow, and excel with us.</p>
+            <a href="Enroll.html" class="hero-btn">Get Started</a>
         </div>
     </section>
     
@@ -1132,12 +1039,12 @@
             
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>1,000+</h3>
+                    <h3>20+</h3>
                     <p>Active Students</p>
                 </div>
                 
                 <div class="stat-item">
-                    <h3>50+</h3>
+                    <h3>5+</h3>
                     <p>Expert Tutors</p>
                 </div>
                 
@@ -1228,289 +1135,261 @@
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></>
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>Quick Links</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Courses</a></li>
-                            <li><a href="#">Pricing</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>Subjects</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">Mathematics</a></li>
-                            <li><a href="#">Science</a></li>
-                            <li><a href="#">English</a></li>
-                            <li><a href="#">Programming</a></li>
-                            <li><a href="#">Test Preparation</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>Contact Us</h3>
-                        <ul class="footer-links">
-                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Education St, Learning City</a></li>
-                            <li><a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
-                            <li><a href="#"><i class="fas fa-envelope"></i> info@yglearning.com</a></li>
-                            <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 9AM - 8PM</a></li>
-                        </ul>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-bottom">
-                    <p>&copy; 2023 YG Learning Platform. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Courses</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Subjects</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Mathematics</a></li>
+                        <li><a href="#">Science</a></li>
+                        <li><a href="#">English</a></li>
+                        <li><a href="#">Kiswahili</a></li>
+                        <li><a href="#">Geography</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Education St, Learning City</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> 0768149739</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> 0745221252</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> yglearningplatform2025@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 9AM - 8PM</a></li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-        
-        <!-- Auth Modal -->
-        <div class="modal" id="authModal">
-            <div class="modal-content">
-                <button class="close-btn" id="closeModalBtn">&times;</button>
-                
-                <div class="tab-group">
-                    <div class="tab active" id="loginTab">Log In</div>
-                    <div class="tab" id="signupTab">Sign Up</div>
-                </div>
-                
-                <form id="loginForm" class="auth-form">
-                    <div class="form-group">
-                        <label for="loginEmail">Email Address</label>
-                        <input type="email" id="loginEmail" placeholder="Enter your email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
-                    </div>
-                    
-                    <button type="submit" class="form-btn">Log In</button>
-                    
-                    <div class="form-footer">
-                        <p>Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
-                        <p><a href="#">Forgot password?</a></p>
-                    </div>
-                </form>
-                
-                <form id="signupForm" class="auth-form" style="display: none;">
-                    <div class="form-group">
-                        <label for="signupName">Full Name</label>
-                        <input type="text" id="signupName" placeholder="Enter your full name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="signupEmail">Email Address</label>
-                        <input type="email" id="signupEmail" placeholder="Enter your email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="signupPassword">Password</label>
-                        <input type="password" id="signupPassword" placeholder="Create a password" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="signupConfirmPassword">Confirm Password</label>
-                        <input type="password" id="signupConfirmPassword" placeholder="Confirm your password" required>
-                    </div>
-                    
-                    <button type="submit" class="form-btn">Create Account</button>
-                    
-                    <div class="form-footer">
-                        <p>Already have an account? <a href="#" id="switchToLogin">Log in</a></p>
-                    </div>
-                </form>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 YG Learning Platform. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
             </div>
         </div>
+    </footer>
         
-        <script>
-            // Mobile Menu Toggle
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModalBtn">&times;</button>
             
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
-                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            });
+            <div class="tab-group">
+                <div class="tab active" id="loginTab">Login</div>
+                <div class="tab" id="signupTab">Sign Up</div>
+            </div>
             
-            // Theme Toggle
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
             
-            themeToggle.addEventListener('click', () => {
-                body.classList.toggle('dark-mode');
-                themeToggle.innerHTML = body.classList.contains('dark-mode') ? 
-                    '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-                
-                // Save preference to localStorage
-                localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-            });
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
             
-            // Check for saved theme preference
-            if (localStorage.getItem('darkMode') === 'true') {
-                body.classList.add('dark-mode');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
+            <button class="form-btn">Login</button>
+            <button class="form-btn">Sign Up</button>
             
-            // Auth Modal
-            const loginBtn = document.getElementById('loginBtn');
-            const signupBtn = document.getElementById('signupBtn');
-            const authModal = document.getElementById('authModal');
-            const closeModalBtn = document.getElementById('closeModalBtn');
-            const loginTab = document.getElementById('loginTab');
-            const signupTab = document.getElementById('signupTab');
-            const loginForm = document.getElementById('loginForm');
-            const signupForm = document.getElementById('signupForm');
-            const switchToSignup = document.getElementById('switchToSignup');
-            const switchToLogin = document.getElementById('switchToLogin');
+            <div class="form-footer">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.innerHTML = body.classList.contains('dark-mode') ? 
+                '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             
-            // Show modal
-            loginBtn.addEventListener('click', () => {
-                authModal.classList.add('show');
-                loginTab.click();
-            });
-            
-            signupBtn.addEventListener('click', () => {
-                authModal.classList.add('show');
-                signupTab.click();
-            });
-            
-            // Close modal
-            closeModalBtn.addEventListener('click', () => {
+            // Save preference to localStorage
+            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        // Auth Modal
+        const authModal = document.getElementById('authModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const loginTab = document.getElementById('loginTab');
+        const signupTab = document.getElementById('signupTab');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const switchToSignup = document.getElementById('switchToSignup');
+        const switchToLogin = document.getElementById('switchToLogin');
+        
+        // Show modal
+        loginTab.addEventListener('click', () => {
+            loginTab.classList.add('active');
+            signupTab.classList.remove('active');
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+        });
+        
+        signupTab.addEventListener('click', () => {
+            signupTab.classList.add('active');
+            loginTab.classList.remove('active');
+            signupForm.style.display = 'block';
+            loginForm.style.display = 'none';
+        });
+        
+        // Close modal
+        closeModalBtn.addEventListener('click', () => {
+            authModal.classList.remove('show');
+        });
+        
+        // Close when clicking outside modal
+        window.addEventListener('click', (e) => {
+            if (e.target === authModal) {
                 authModal.classList.remove('show');
-            });
+            }
+        });
+        
+        // Tab switching
+        loginTab.addEventListener('click', () => {
+            loginTab.classList.add('active');
+            signupTab.classList.remove('active');
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+        });
+        
+        signupTab.addEventListener('click', () => {
+            signupTab.classList.add('active');
+            loginTab.classList.remove('active');
+            signupForm.style.display = 'block';
+            loginForm.style.display = 'none';
+        });
+        
+        // Form switching links
+        switchToSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            signupTab.click();
+        });
+        
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginTab.click();
+        });
+        
+        // Form submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add login logic here
+            alert('Login functionality would be implemented here');
+        });
+        
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add signup logic here
+            alert('Signup functionality would be implemented here');
+        });
+        
+        // Carousel functionality
+        const carouselContainer = document.getElementById('carouselContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        
+        function updateCarousel() {
+            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
             
-            // Close when clicking outside modal
-            window.addEventListener('click', (e) => {
-                if (e.target === authModal) {
-                    authModal.classList.remove('show');
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        });
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+        
+        // Auto-advance carousel
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        }, 5000);
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.feature-card, .stat-item');
             
-            // Tab switching
-            loginTab.addEventListener('click', () => {
-                loginTab.classList.add('active');
-                signupTab.classList.remove('active');
-                loginForm.style.display = 'block';
-                signupForm.style.display = 'none';
-            });
-            
-            signupTab.addEventListener('click', () => {
-                signupTab.classList.add('active');
-                loginTab.classList.remove('active');
-                signupForm.style.display = 'block';
-                loginForm.style.display = 'none';
-            });
-            
-            // Form switching links
-            switchToSignup.addEventListener('click', (e) => {
-                e.preventDefault();
-                signupTab.click();
-            });
-            
-            switchToLogin.addEventListener('click', (e) => {
-                e.preventDefault();
-                loginTab.click();
-            });
-            
-            // Form submission
-            loginForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Add login logic here
-                alert('Login functionality would be implemented here');
-            });
-            
-            signupForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Add signup logic here
-                alert('Signup functionality would be implemented here');
-            });
-            
-            // Carousel functionality
-            const carouselContainer = document.getElementById('carouselContainer');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const dots = document.querySelectorAll('.carousel-dot');
-            let currentIndex = 0;
-            const slides = document.querySelectorAll('.carousel-slide');
-            
-            function updateCarousel() {
-                carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
                 
-                // Update dots
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                });
-            }
-            
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                updateCarousel();
+                if (elementPosition < screenPosition) {
+                    element.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
             });
-            
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateCarousel();
-            });
-            
-            // Dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    currentIndex = index;
-                    updateCarousel();
-                });
-            });
-            
-            // Auto-advance carousel
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateCarousel();
-            }, 5000);
-            
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Animation on scroll
-            function animateOnScroll() {
-                const elements = document.querySelectorAll('.feature-card, .stat-item');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.2;
-                    
-                    if (elementPosition < screenPosition) {
-                        element.style.animation = 'fadeInUp 0.6s ease forwards';
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Run once on page load
-        </script>
-    </body>
-    </html>
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on page load
+    </script>
+</body>
+</html>

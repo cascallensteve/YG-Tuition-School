@@ -1,14 +1,16 @@
 :root {
-    --primary-color: #3a7bd5;
-    --primary-dark: #2d6ac1;
-    --secondary-color: #00d2ff;
-    --text-color: #333;
-    --text-color-light: #666;
-    --background-color: #f5f7fa;
-    --card-background: #fff;
-    --footer-background: #1a5f7a;
-    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --primary-color: #2563eb;
+    --primary-color-dark: #1e40af;
+    --secondary-color: #60a5fa;
+    --accent-color: #38bdf8;
+    --background-color: #f8fafc;
+    --card-background: #ffffff;
+    --text-color: #1e293b;
+    --text-color-light: #64748b;
+    --white: #ffffff;
+    --box-shadow: 0 4px 24px rgba(37,99,235,0.08);
+    --card-shadow: 0 8px 32px rgba(37,99,235,0.10);
+    --border-radius: 16px;
     --transition-speed: 0.3s;
 }
 
@@ -34,7 +36,7 @@
 }
 
 body {
-    background-color: var(--background-color);
+    background: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
     opacity: 0;
@@ -295,10 +297,40 @@ footer {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--card-background);
+        flex-direction: column;
+        align-items: center;
+        box-shadow: var(--header-shadow);
+        z-index: 999;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all var(--transition-speed);
     }
-    
+    .nav-links.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .nav-links li {
+        margin: 15px 0;
+    }
     .mobile-menu-btn {
         display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: var(--text-color);
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: var(--transition-speed);
+    }
+    .mobile-menu-btn:hover {
+        background-color: rgba(67, 97, 238, 0.1);
     }
     
     .about-hero h1 {
@@ -313,6 +345,16 @@ footer {
     .features-grid,
     .team-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .footer-section, .footer-column {
+        text-align: center;
     }
 }
 
@@ -494,4 +536,195 @@ footer {
     .carousel-item img {
         height: 300px;
     }
+}
+
+.main-navbar {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    box-shadow: var(--box-shadow);
+    border-radius: 0 0 18px 18px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background var(--transition-speed);
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color var(--transition-speed);
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 8px 18px;
+    border-radius: 24px;
+    transition: background var(--transition-speed), color var(--transition-speed), box-shadow var(--transition-speed);
+    position: relative;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background: var(--accent-color);
+    color: var(--primary-color-dark);
+    box-shadow: 0 2px 12px rgba(56,189,248,0.12);
+}
+
+.nav-btn {
+    background: var(--white);
+    color: var(--primary-color);
+    font-weight: 700;
+    border-radius: 24px;
+    padding: 10px 28px;
+    margin-left: 12px;
+    box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+    transition: background var(--transition-speed), color var(--transition-speed), box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.nav-btn:hover {
+    background: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 18px rgba(56,189,248,0.18);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 18px;
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100vw;
+        box-shadow: var(--box-shadow);
+        border-radius: 0 0 18px 18px;
+        z-index: 1001;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+/* Hero, Section, Card, Button, Animation Enhancements */
+.hero, .about-hero, .school-header, .pricing-hero, .contact-hero, .enroll-hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before, .about-hero::before, .school-header::before, .pricing-hero::before, .contact-hero::before, .enroll-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    opacity: 0.10;
+    z-index: 1;
+}
+.hero .container, .about-hero .container, .school-header .container, .pricing-hero .container, .contact-hero .container, .enroll-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+button, .hero-btn, .cta-btn, .form-btn {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border: none;
+    border-radius: 24px;
+    padding: 12px 32px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+    transition: background var(--transition-speed), color var(--transition-speed), box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+button:hover, .hero-btn:hover, .cta-btn:hover, .form-btn:hover {
+    background: var(--accent-color);
+    color: var(--primary-color-dark);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 18px rgba(56,189,248,0.18);
+}
+
+.card, .course-card, .pricing-card, .enroll-card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+.card:hover, .course-card:hover, .pricing-card:hover, .enroll-card:hover {
+    box-shadow: 0 12px 32px rgba(37,99,235,0.16);
+    transform: translateY(-6px) scale(1.02);
+}
+
+input, select, textarea {
+    border: 2px solid var(--secondary-color);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    background: var(--white);
+    color: var(--text-color);
+    margin-bottom: 18px;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+    outline: none;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+    animation: fadeInUp 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+}
+
+/* Hover effect for cards */
+.card, .course-card, .pricing-card, .enroll-card {
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.card:hover, .course-card:hover, .pricing-card:hover, .enroll-card:hover {
+    box-shadow: 0 12px 32px rgba(37,99,235,0.16);
+    transform: translateY(-6px) scale(1.02);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .main-navbar { flex-direction: column; padding: 0 8px; }
+    .nav-links { flex-direction: column; gap: 12px; }
+    .nav-links a, .nav-btn { width: 100%; text-align: center; }
+    .hero, .about-hero, .school-header, .pricing-hero, .contact-hero, .enroll-hero { padding: 60px 0 40px; }
+    .hero h1, .about-hero h1, .school-header h1, .pricing-hero h1, .contact-hero h1, .enroll-hero h1 { font-size: 2rem; }
 } 
